@@ -7,7 +7,7 @@
     <title>Attendly</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
@@ -19,100 +19,127 @@
     
     <style>
       :root, html.light {
-        --color-bg: #f4f7f9; /* gray-100ish */
-        --color-text: #111827; /* gray-900 */
-        --color-text-muted: #6b7280; /* gray-500 */
+        --radius-sm: 0.25rem;
+        --radius-md: 0.5rem;
+        --radius-lg: 0.75rem;
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        
+        --color-bg: #f8fafc; /* slate-50 */
+        --color-text: #0f172a; /* slate-900 */
+        --color-text-muted: #64748b; /* slate-500 */
         --color-card-bg: #ffffff; /* white */
-        --color-border: #e5e7eb; /* gray-200 */
-        --color-primary: #4f46e5; /* indigo-600 */
-        --color-primary-hover: #4338ca; /* indigo-700 */
+        --color-border: #e2e8f0; /* slate-200 */
+        --color-primary: #6366f1; /* indigo-500 */
+        --color-primary-rgb: 99, 102, 241;
+        --color-primary-hover: #4f46e5; /* indigo-600 */
         --color-primary-text: #ffffff;
-        --color-secondary-bg: #f3f4f6; /* gray-100 */
-        --color-secondary-hover: #e5e7eb; /* gray-200 */
-        --color-secondary-text: #1f2937;
-        --color-success: #10b981; /* emerald-500 */
-        --color-success-hover: #059669; /* emerald-600 */
+        --color-secondary-bg: #f1f5f9; /* slate-100 */
+        --color-secondary-hover: #e2e8f0; /* slate-200 */
+        --color-secondary-text: #334155; /* slate-700 */
+        --color-success: #22c55e; /* green-500 */
+        --color-success-hover: #16a34a; /* green-600 */
       }
       html.dark {
-        --color-bg: #0d1117; /* Darker Github BG */
-        --color-text: #c9d1d9; /* Github light text */
-        --color-text-muted: #8b949e; /* Github muted text */
-        --color-card-bg: #161b22; /* Github card BG */
-        --color-border: #30363d; /* Github border */
-        --color-primary: #58a6ff; /* Github blue */
-        --color-primary-hover: #80b6ff;
-        --color-primary-text: #0d1117;
-        --color-secondary-bg: #21262d;
-        --color-secondary-hover: #30363d;
-        --color-secondary-text: #c9d1d9;
-        --color-success: #2ea043; /* Github green */
-        --color-success-hover: #3fb950;
+        --color-bg: #020617; /* slate-950 */
+        --color-text: #e2e8f0; /* slate-200 */
+        --color-text-muted: #94a3b8; /* slate-400 */
+        --color-card-bg: #0f172a; /* slate-900 */
+        --color-border: #1e293b; /* slate-800 */
+        --color-primary: #818cf8; /* indigo-400 */
+        --color-primary-rgb: 129, 140, 248;
+        --color-primary-hover: #a5b4fc; /* indigo-300 */
+        --color-primary-text: #1e293b;
+        --color-secondary-bg: #1e293b; /* slate-800 */
+        --color-secondary-hover: #334155; /* slate-700 */
+        --color-secondary-text: #e2e8f0; /* slate-200 */
+        --color-success: #4ade80; /* green-400 */
+        --color-success-hover: #86efac; /* green-300 */
       }
       html.sunset {
-        --color-bg: #1a1a2e;
+        --color-bg: #0f051e;
         --color-text: #e0e0e0;
         --color-text-muted: #a9a9a9;
-        --color-card-bg: #232946;
-        --color-border: #4a4e69;
+        --color-card-bg: #1e0e3b;
+        --color-border: #3a2d56;
         --color-primary: #e53170;
+        --color-primary-rgb: 229, 49, 112;
         --color-primary-hover: #ff4785;
         --color-primary-text: #ffffff;
-        --color-secondary-bg: #4a4e69;
-        --color-secondary-hover: #6c6f8a;
+        --color-secondary-bg: #3a2d56;
+        --color-secondary-hover: #4e3d70;
         --color-secondary-text: #e0e0e0;
         --color-success: #1ee698;
         --color-success-hover: #4affb5;
       }
       html.forest {
-        --color-bg: #f0fdf4;
+        --color-bg: #f0fdf4; /* green-50 */
         --color-text: #1a202c;
         --color-text-muted: #4a5568;
         --color-card-bg: #ffffff;
         --color-border: #e2e8f0;
-        --color-primary: #2f855a;
-        --color-primary-hover: #276749;
+        --color-primary: #2f855a; /* green-800 */
+        --color-primary-rgb: 47, 133, 90;
+        --color-primary-hover: #276749; /* green-900 */
         --color-primary-text: #ffffff;
-        --color-secondary-bg: #e6fffa;
-        --color-secondary-hover: #b2f5ea;
-        --color-secondary-text: #2c5282;
+        --color-secondary-bg: #d1fae5; /* green-100 */
+        --color-secondary-hover: #a7f3d0; /* green-200 */
+        --color-secondary-text: #1f2937;
         --color-success: #38a169;
         --color-success-hover: #2f855a;
       }
       html.ocean {
-        --color-bg: #e6f7ff;
-        --color-text: #002333;
-        --color-text-muted: #004a6b;
+        --color-bg: #f0f9ff; /* sky-50 */
+        --color-text: #0c4a6e; /* sky-900 */
+        --color-text-muted: #38bdf8; /* sky-400 */
         --color-card-bg: #ffffff;
-        --color-border: #91d5ff;
-        --color-primary: #006094;
-        --color-primary-hover: #004a6b;
+        --color-border: #bae6fd; /* sky-200 */
+        --color-primary: #0369a1; /* sky-800 */
+        --color-primary-rgb: 3, 105, 161;
+        --color-primary-hover: #075985; /* sky-900 */
         --color-primary-text: #ffffff;
-        --color-secondary-bg: #b3e5ff;
-        --color-secondary-hover: #91d5ff;
-        --color-secondary-text: #002333;
-        --color-success: #00876c;
-        --color-success-hover: #006b54;
+        --color-secondary-bg: #e0f2fe; /* sky-100 */
+        --color-secondary-hover: #bae6fd; /* sky-200 */
+        --color-secondary-text: #0c4a6e;
+        --color-success: #059669;
+        --color-success-hover: #047857;
       }
+
+      * {
+        scroll-behavior: smooth;
+      }
+      
       body {
         background-color: var(--color-bg);
         color: var(--color-text);
-        transition: background-color 0.3s ease, color 0.3s ease;
         font-family: 'Inter', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        background-image: radial-gradient(var(--color-border) 1px, transparent 0);
+        background-size: 25px 25px;
       }
+      
+      ::selection {
+        background-color: rgba(var(--color-primary-rgb), 0.2);
+        color: var(--color-text);
+      }
+      
       kbd {
         background-color: var(--color-secondary-bg);
         color: var(--color-secondary-text);
-        padding: 2px 6px;
-        border-radius: 4px;
+        padding: 4px 8px;
+        border-radius: var(--radius-sm);
         border: 1px solid var(--color-border);
+        box-shadow: var(--shadow-sm);
         font-family: monospace;
         font-size: 0.9em;
       }
+
       ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
+        width: 10px;
+        height: 10px;
       }
       ::-webkit-scrollbar-track {
         background: var(--color-bg);
@@ -120,7 +147,7 @@
       ::-webkit-scrollbar-thumb {
         background-color: var(--color-secondary-hover);
         border-radius: 10px;
-        border: 2px solid var(--color-bg);
+        border: 3px solid var(--color-bg);
       }
       ::-webkit-scrollbar-thumb:hover {
         background-color: var(--color-border);
@@ -233,7 +260,8 @@
           try {
             const item = window.localStorage.getItem(key);
             return item ? JSON.parse(item) : initialValue;
-          } catch (error) {
+          } catch (error)
+{
             console.error(error);
             return initialValue;
           }
@@ -368,7 +396,7 @@
 
         return (
           <div
-            className="fixed inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center transition-opacity duration-300"
+            className="fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center transition-opacity duration-300"
             aria-labelledby="modal-title"
             role="dialog"
             aria-modal="true"
@@ -376,7 +404,7 @@
           >
             <div
               ref={modalRef}
-              className="bg-[var(--color-card-bg)] rounded-xl shadow-2xl m-4 max-w-lg w-full transform transition-all duration-300 ease-out scale-95 animate-scale-in border border-[var(--color-border)]"
+              className="bg-[var(--color-card-bg)] rounded-[var(--radius-lg)] shadow-2xl m-4 max-w-lg w-full transform transition-all duration-300 ease-out scale-95 animate-scale-in border border-[var(--color-border)]"
               onClick={(e) => e.stopPropagation()}
               tabIndex={-1}
             >
@@ -396,7 +424,7 @@
                 {children}
               </div>
               {footer && (
-                <div className="px-6 py-4 bg-[var(--color-bg)] rounded-b-xl flex flex-wrap justify-end gap-3 border-t border-[var(--color-border)]">
+                <div className="px-6 py-4 bg-[var(--color-bg)] rounded-b-[var(--radius-lg)] flex flex-wrap justify-end gap-3 border-t border-[var(--color-border)]">
                   {footer}
                 </div>
               )}
@@ -514,7 +542,7 @@
         return (
           <div className="min-h-screen flex items-center justify-center bg-[var(--color-bg)] p-4">
             <div className="max-w-md w-full bg-[var(--color-card-bg)] p-8 rounded-2xl shadow-lg border border-[var(--color-border)]">
-              <h1 className="text-4xl font-bold text-center text-[var(--color-primary)] mb-2">Attendly</h1>
+              <h1 className="text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-pink-500 mb-2">Attendly</h1>
               <h2 className="text-lg font-medium text-center text-[var(--color-text-muted)] mb-8">Teacher Login</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -527,7 +555,7 @@
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="mt-1 block w-full p-3 border rounded-md bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition"
+                    className="mt-1 block w-full p-3 border rounded-[var(--radius-md)] bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-card-bg)] focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition"
                     placeholder="teacher@example.com"
                   />
                 </div>
@@ -541,7 +569,7 @@
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="mt-1 block w-full p-3 border rounded-md bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition"
+                    className="mt-1 block w-full p-3 border rounded-[var(--radius-md)] bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-card-bg)] focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition"
                     placeholder="••••••••"
                   />
                 </div>
@@ -549,7 +577,7 @@
                 <div>
                   <button
                     type="submit"
-                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-semibold text-[var(--color-primary-text)] bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-primary)] transition transform hover:scale-105"
+                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-[var(--radius-md)] shadow-sm text-sm font-semibold text-[var(--color-primary-text)] bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-card-bg)] focus:ring-[var(--color-primary)] transition-all transform hover:scale-105"
                   >
                     Sign in
                   </button>
@@ -668,7 +696,7 @@
           
           if (totalStudents === 0) {
               return (
-                  <div className="bg-[var(--color-card-bg)] p-6 rounded-xl shadow-sm border border-[var(--color-border)] text-center">
+                  <div className="bg-[var(--color-card-bg)] p-6 rounded-2xl shadow-md border border-[var(--color-border)] text-center">
                       <p className="text-center text-[var(--color-text-muted)] py-4">Please add students in the "Students" page first.</p>
                   </div>
               );
@@ -677,40 +705,40 @@
           const currentStudent = sortedStudents[currentIndex];
 
           return (
-              <div className="bg-[var(--color-card-bg)] p-6 rounded-xl shadow-sm border border-[var(--color-border)] flex flex-col items-center">
+              <div className="bg-[var(--color-card-bg)] p-6 rounded-2xl shadow-md border border-[var(--color-border)] flex flex-col items-center">
                   <p className="text-sm font-medium text-[var(--color-text-muted)] mb-4">{currentIndex} of {totalStudents} students marked</p>
                   
-                  <div className="w-full bg-[var(--color-secondary-bg)] rounded-full h-2 mb-6">
+                  <div className="w-full bg-[var(--color-secondary-bg)] rounded-full h-2 mb-6 shadow-inner">
                       <div 
-                          className="bg-[var(--color-primary)] h-2 rounded-full transition-all duration-300 ease-out" 
+                          className="bg-gradient-to-r from-[var(--color-primary)] to-pink-500 h-2 rounded-full transition-all duration-300 ease-out" 
                           style={{ width: `${(currentIndex / totalStudents) * 100}%` }}
                       ></div>
                   </div>
 
                   <div className="relative w-full max-w-sm h-64 mb-6">
                       {currentIndex < totalStudents ? (
-                          <div className={`absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 dark:from-indigo-500/20 dark:to-purple-500/20 border border-[var(--color-border)] rounded-xl shadow-lg p-6 flex flex-col justify-center items-center text-center ${animationClass}`}>
-                              <span className="font-mono text-lg bg-[var(--color-secondary-bg)] border border-[var(--color-border)] px-2 py-1 rounded mb-3 text-[var(--color-secondary-text)]">{currentStudent.roll}</span>
-                              <h4 className="text-2xl font-bold text-[var(--color-text)]">{currentStudent.name}</h4>
+                          <div className={`absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 dark:from-indigo-900/20 dark:to-purple-900/20 border border-[var(--color-border)] rounded-2xl shadow-lg p-6 flex flex-col justify-center items-center text-center ${animationClass}`}>
+                              <span className="font-mono text-lg bg-[var(--color-secondary-bg)] border border-[var(--color-border)] px-3 py-1 rounded-md mb-4 text-[var(--color-secondary-text)] shadow-sm">{currentStudent.roll}</span>
+                              <h4 className="text-3xl font-bold text-[var(--color-text)]">{currentStudent.name}</h4>
                           </div>
                       ) : (
-                          <div className="w-full h-full flex justify-center items-center bg-[var(--color-bg)] rounded-xl border border-[var(--color-border)]">
+                          <div className="w-full h-full flex justify-center items-center bg-[var(--color-bg)] rounded-2xl border border-[var(--color-border)]">
                               <p className="text-[var(--color-text-muted)]">All students marked!</p>
                           </div>
                       )}
                   </div>
 
                   <div className="flex justify-center items-center space-x-2 sm:space-x-4">
-                      <button aria-label="Mark Absent" onClick={() => handleAction(AttendanceStatus.ABSENT)} className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-red-500/10 text-red-500 flex justify-center items-center shadow-md hover:bg-red-500/20 transform hover:scale-110 transition disabled:opacity-50" disabled={!!animationClass}>
+                      <button aria-label="Mark Absent" onClick={() => handleAction(AttendanceStatus.ABSENT)} className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-red-500/10 text-red-500 flex justify-center items-center shadow-lg hover:bg-red-500/20 transform hover:scale-110 transition-all duration-200 disabled:opacity-50" disabled={!!animationClass}>
                           <XIcon className="w-8 h-8 sm:w-10 sm:h-10"/>
                       </button>
-                      <button aria-label="Mark Bunk" onClick={() => handleAction(AttendanceStatus.BUNK)} className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-orange-500/10 text-orange-500 flex justify-center items-center shadow-md hover:bg-orange-500/20 transform hover:scale-110 transition disabled:opacity-50" disabled={!!animationClass}>
+                      <button aria-label="Mark Bunk" onClick={() => handleAction(AttendanceStatus.BUNK)} className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-orange-500/10 text-orange-500 flex justify-center items-center shadow-lg hover:bg-orange-500/20 transform hover:scale-110 transition-all duration-200 disabled:opacity-50" disabled={!!animationClass}>
                           <BanIcon className="w-8 h-8 sm:w-9 sm:h-9"/>
                       </button>
-                      <button aria-label="Mark On Leave" onClick={() => handleAction(AttendanceStatus.LEAVE)} className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-yellow-500/10 text-yellow-500 flex justify-center items-center shadow-md hover:bg-yellow-500/20 transform hover:scale-110 transition disabled:opacity-50" disabled={!!animationClass}>
+                      <button aria-label="Mark On Leave" onClick={() => handleAction(AttendanceStatus.LEAVE)} className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-yellow-500/10 text-yellow-500 flex justify-center items-center shadow-lg hover:bg-yellow-500/20 transform hover:scale-110 transition-all duration-200 disabled:opacity-50" disabled={!!animationClass}>
                           <FileTextIcon className="w-7 h-7 sm:w-9 sm:h-9"/>
                       </button>
-                      <button aria-label="Mark Present" onClick={() => handleAction(AttendanceStatus.PRESENT)} className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-green-500/10 text-green-500 flex justify-center items-center shadow-md hover:bg-green-500/20 transform hover:scale-110 transition disabled:opacity-50" disabled={!!animationClass}>
+                      <button aria-label="Mark Present" onClick={() => handleAction(AttendanceStatus.PRESENT)} className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-green-500/10 text-green-500 flex justify-center items-center shadow-lg hover:bg-green-500/20 transform hover:scale-110 transition-all duration-200 disabled:opacity-50" disabled={!!animationClass}>
                           <CheckIcon className="w-8 h-8 sm:w-10 sm:h-10"/>
                       </button>
                   </div>
@@ -730,9 +758,9 @@
                                   key={reason}
                                   ref={el => { reasonButtonsRef.current[index] = el; }}
                                   onClick={() => handleSelectLeaveReason(reason)} 
-                                  className={`w-full text-left p-3 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-card-bg)] focus:ring-[var(--color-primary)] ${
+                                  className={`w-full text-left p-3 rounded-[var(--radius-md)] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-card-bg)] focus:ring-[var(--color-primary)] ${
                                       focusedReasonIndex === index
-                                          ? 'bg-[var(--color-primary)] text-[var(--color-primary-text)] font-semibold'
+                                          ? 'bg-[var(--color-primary)] text-[var(--color-primary-text)] font-semibold shadow-md'
                                           : 'bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] hover:bg-[var(--color-secondary-hover)]'
                                   }`}
                               >
@@ -785,10 +813,10 @@
               )
           });
         
-        const inputClass = "p-2 pl-10 border rounded-md bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-shadow duration-200";
+        const inputClass = "p-2 pl-10 border rounded-[var(--radius-md)] bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-card-bg)] focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-shadow duration-200";
 
         return (
-          <div className="bg-[var(--color-card-bg)] p-4 sm:p-6 rounded-xl shadow-sm border border-[var(--color-border)]">
+          <div className="bg-[var(--color-card-bg)] p-4 sm:p-6 rounded-2xl shadow-md border border-[var(--color-border)]">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4 flex-wrap">
               <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-2">
                   <div className="w-full sm:w-auto relative">
@@ -814,14 +842,14 @@
                     />
                   </div>
                   {(dateFilter || searchTerm) && (
-                      <button onClick={() => { setDateFilter(''); setSearchTerm(''); }} className="p-2 bg-[var(--color-secondary-bg)] text-[var(--color-text-muted)] rounded-md hover:bg-[var(--color-secondary-hover)] transition" aria-label="Clear filters"><XIcon/></button>
+                      <button onClick={() => { setDateFilter(''); setSearchTerm(''); }} className="p-2 bg-[var(--color-secondary-bg)] text-[var(--color-text-muted)] rounded-[var(--radius-md)] hover:bg-[var(--color-secondary-hover)] transition" aria-label="Clear filters"><XIcon/></button>
                   )}
               </div>
             </div>
             <div className="space-y-4 max-h-[70vh] overflow-y-auto -mr-3 pr-3">
               {sortedAndFilteredHistory.length > 0 ? (
                 sortedAndFilteredHistory.map(entry => (
-                  <div key={entry.id} className="p-4 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                  <div key={entry.id} className="p-4 rounded-[var(--radius-lg)] bg-[var(--color-bg)] border border-[var(--color-border)] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:shadow-md hover:border-[var(--color-primary)]/50 transition-all duration-200">
                     <div>
                       <p className="font-bold text-[var(--color-text)]">{entry.settings.className || 'Attendance Report'}</p>
                       <p className="text-sm text-[var(--color-text-muted)]">{formatDate(entry.timestamp)}</p>
@@ -836,12 +864,12 @@
                       <button 
                         onClick={() => handleDownload(entry)} 
                         disabled={isGeneratingPdf}
-                        className="p-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-md hover:bg-[var(--color-secondary-hover)] transition disabled:opacity-50 disabled:cursor-wait" 
+                        className="p-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-[var(--radius-md)] hover:bg-[var(--color-secondary-hover)] transition disabled:opacity-50 disabled:cursor-wait" 
                         aria-label="Download PDF"
                       >
                         <DownloadIcon/>
                       </button>
-                      <button onClick={() => setEntryToDelete(entry)} className="p-2 text-red-500 bg-red-500/10 rounded-md hover:bg-red-500/20 transition" aria-label="Delete entry"><TrashIcon/></button>
+                      <button onClick={() => setEntryToDelete(entry)} className="p-2 text-red-500 bg-red-500/10 rounded-[var(--radius-md)] hover:bg-red-500/20 transition" aria-label="Delete entry"><TrashIcon/></button>
                     </div>
                   </div>
                 ))
@@ -856,8 +884,8 @@
               title="Confirm Deletion"
               footer={
                   <>
-                      <button onClick={() => setEntryToDelete(null)} className="px-4 py-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-md hover:bg-[var(--color-secondary-hover)] transition font-medium">Cancel</button>
-                      <button onClick={handleDelete} className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition font-medium">Delete</button>
+                      <button onClick={() => setEntryToDelete(null)} className="px-4 py-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-[var(--radius-md)] hover:bg-[var(--color-secondary-hover)] transition font-medium">Cancel</button>
+                      <button onClick={handleDelete} className="px-4 py-2 bg-red-600 text-white rounded-[var(--radius-md)] hover:bg-red-700 transition font-medium">Delete</button>
                   </>
               }
             >
@@ -889,7 +917,7 @@
               addToast("Teacher profile updated successfully!", 'success');
           };
           
-          const inputClass = "mt-1 block w-full p-2 border rounded-md bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-shadow duration-200";
+          const inputClass = "mt-1 block w-full p-2 border rounded-[var(--radius-md)] bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-card-bg)] focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-shadow duration-200";
 
           return (
             <form onSubmit={handleSubmit}>
@@ -913,7 +941,7 @@
                         </div>
                     </div>
                     <div className="text-right pt-2">
-                        <button type="submit" className="px-5 py-2 bg-[var(--color-primary)] text-[var(--color-primary-text)] rounded-md hover:bg-[var(--color-primary-hover)] transition font-semibold">Save Profile</button>
+                        <button type="submit" className="px-5 py-2 bg-[var(--color-primary)] text-[var(--color-primary-text)] rounded-[var(--radius-md)] hover:bg-[var(--color-primary-hover)] transition font-semibold">Save Profile</button>
                     </div>
                 </div>
             </form>
@@ -941,7 +969,7 @@
               setFormState(prev => ({ ...prev, [e.target.name]: e.target.value }));
           };
           
-          const inputClass = "mt-1 block w-full p-2 border rounded-md bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-shadow duration-200";
+          const inputClass = "mt-1 block w-full p-2 border rounded-[var(--radius-md)] bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-card-bg)] focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-shadow duration-200";
 
 
           return (
@@ -964,11 +992,11 @@
 
       const SettingsEditor = ({ settings, setSettings, teacher, setTeacher, theme, setTheme, fontSize, setFontSize, onOpenAbout, addToast }) => {
           const themes = [
-              { id: 'light', name: 'Light', color: '#f4f7f9' },
-              { id: 'dark', name: 'Dark', color: '#0d1117' },
-              { id: 'sunset', name: 'Sunset', color: '#1a1a2e' },
+              { id: 'light', name: 'Light', color: '#f8fafc' },
+              { id: 'dark', name: 'Dark', color: '#0f172a' },
+              { id: 'sunset', name: 'Sunset', color: '#1e0e3b' },
               { id: 'forest', name: 'Forest', color: '#f0fdf4' },
-              { id: 'ocean', name: 'Ocean', color: '#e6f7ff' },
+              { id: 'ocean', name: 'Ocean', color: '#f0f9ff' },
           ];
 
           const fontSizes = [
@@ -978,7 +1006,7 @@
           ];
 
           const FieldsetCard = ({ title, children }) => (
-              <div className="bg-[var(--color-card-bg)] p-6 rounded-xl shadow-sm border border-[var(--color-border)]">
+              <div className="bg-[var(--color-card-bg)] p-6 rounded-2xl shadow-md border border-[var(--color-border)]">
                   <h4 className="text-lg font-semibold text-[var(--color-text)] mb-4">{title}</h4>
                   {children}
               </div>
@@ -1000,7 +1028,7 @@
                               <label className="block text-sm font-medium text-[var(--color-text-muted)] mb-2 flex items-center"><PaletteIcon className="mr-2" /> Theme</label>
                               <div className="flex flex-wrap gap-3">
                                   {themes.map(t => (
-                                      <button key={t.id} onClick={() => setTheme(t.id)} className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center gap-2 border ${theme === t.id ? 'bg-[var(--color-primary)] text-[var(--color-primary-text)] border-transparent' : 'bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] hover:bg-[var(--color-secondary-hover)] border-[var(--color-border)]'}`}>
+                                      <button key={t.id} onClick={() => setTheme(t.id)} className={`px-4 py-2 rounded-[var(--radius-md)] text-sm font-medium transition-all duration-200 flex items-center gap-2 border ${theme === t.id ? 'bg-[var(--color-primary)] text-[var(--color-primary-text)] border-transparent shadow-md' : 'bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] hover:bg-[var(--color-secondary-hover)] border-[var(--color-border)]'}`}>
                                           <span className="w-4 h-4 rounded-full border border-gray-400/50" style={{ backgroundColor: t.color }}></span>
                                           {t.name}
                                       </button>
@@ -1011,7 +1039,7 @@
                               <label className="block text-sm font-medium text-[var(--color-text-muted)] mb-2">Font Size</label>
                               <div className="flex gap-2">
                                   {fontSizes.map(fs => (
-                                      <button key={fs.id} onClick={() => setFontSize(fs.id)} className={`w-10 h-10 rounded-md text-sm font-medium transition flex items-center justify-center border ${fontSize === fs.id ? 'bg-[var(--color-primary)] text-[var(--color-primary-text)] border-transparent' : 'bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] hover:bg-[var(--color-secondary-hover)] border-[var(--color-border)]'}`}>{fs.name}</button>
+                                      <button key={fs.id} onClick={() => setFontSize(fs.id)} className={`w-10 h-10 rounded-[var(--radius-md)] text-sm font-medium transition flex items-center justify-center border ${fontSize === fs.id ? 'bg-[var(--color-primary)] text-[var(--color-primary-text)] border-transparent shadow-md' : 'bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] hover:bg-[var(--color-secondary-hover)] border-[var(--color-border)]'}`}>{fs.name}</button>
                                   ))}
                               </div>
                           </div>
@@ -1019,7 +1047,7 @@
                   </FieldsetCard>
                   
                   <FieldsetCard title="About">
-                      <button onClick={onOpenAbout} className="px-4 py-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-md hover:bg-[var(--color-secondary-hover)] transition text-sm font-medium">About Attendly</button>
+                      <button onClick={onOpenAbout} className="px-4 py-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-[var(--radius-md)] hover:bg-[var(--color-secondary-hover)] transition text-sm font-medium">About Attendly</button>
                   </FieldsetCard>
 
                   <p className="text-xs text-[var(--color-text-muted)] mt-8 text-center">All settings are saved automatically to your browser.</p>
@@ -1044,7 +1072,7 @@
               onSave(formData);
           };
           
-          const inputClass = "mt-1 w-full p-2 border rounded-md bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-shadow duration-200";
+          const inputClass = "mt-1 w-full p-2 border rounded-[var(--radius-md)] bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-card-bg)] focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-shadow duration-200";
 
           return (
               <form id="edit-student-form" className="space-y-4" onSubmit={handleSubmit}>
@@ -1108,7 +1136,7 @@
           setNewStudent({ roll: '', name: '', section: '', program: '', session: '', contact: '', email: '', guardianName: '', guardianContact: '', notes: '' });
         };
 
-        const inputClass = "p-2 border rounded-md bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-shadow duration-200";
+        const inputClass = "p-2 border rounded-[var(--radius-md)] bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-card-bg)] focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-shadow duration-200";
 
         return (
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -1125,7 +1153,7 @@
                   <textarea name="notes" placeholder="Notes (Optional)" value={newStudent.notes || ''} onChange={handleInputChange} rows={2} className={`sm:col-span-2 ${inputClass}`}/>
               </div>
               <div className="flex justify-end pt-2">
-                  <button type="submit" className="px-6 py-2 bg-[var(--color-primary)] text-[var(--color-primary-text)] rounded-md hover:bg-[var(--color-primary-hover)] transition font-semibold">Add Student</button>
+                  <button type="submit" className="px-6 py-2 bg-[var(--color-primary)] text-[var(--color-primary-text)] rounded-[var(--radius-md)] hover:bg-[var(--color-primary-hover)] transition font-semibold">Add Student</button>
               </div>
           </form>
         );
@@ -1352,22 +1380,22 @@
             }
         };
         
-        const inputClass = "p-2 border rounded-md bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-shadow duration-200";
+        const inputClass = "p-2 border rounded-[var(--radius-md)] bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-card-bg)] focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-shadow duration-200";
 
         return (
           <div className="space-y-6">
-            <div className="bg-[var(--color-card-bg)] p-4 sm:p-6 rounded-xl shadow-sm border border-[var(--color-border)]">
+            <div className="bg-[var(--color-card-bg)] p-4 sm:p-6 rounded-2xl shadow-md border border-[var(--color-border)]">
               <h3 className="text-xl font-semibold mb-4 text-[var(--color-text)] flex items-center"><UsersIcon className="mr-2"/> Add New Student</h3>
               <AddStudentForm onAddStudent={handleAddStudent} />
             </div>
             
-            <div className="bg-[var(--color-card-bg)] p-4 sm:p-6 rounded-xl shadow-sm border border-[var(--color-border)]">
+            <div className="bg-[var(--color-card-bg)] p-4 sm:p-6 rounded-2xl shadow-md border border-[var(--color-border)]">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
                   <h4 className="text-xl font-semibold text-[var(--color-text)]">Student List ({students.length})</h4>
                   <div className="flex gap-2">
                     <input type="file" accept=".csv" ref={fileInputRef} onChange={handleCsvImport} className="hidden" />
-                    <button onClick={() => fileInputRef.current?.click()} className="flex items-center gap-2 px-4 py-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-md hover:bg-[var(--color-secondary-hover)] transition font-medium"><UploadIcon/> Import</button>
-                    <button onClick={() => handleCsvExport(students)} disabled={students.length === 0} className="flex items-center gap-2 px-4 py-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-md hover:bg-[var(--color-secondary-hover)] transition disabled:opacity-50 disabled:cursor-not-allowed"><DownloadIcon/> Export</button>
+                    <button onClick={() => fileInputRef.current?.click()} className="flex items-center gap-2 px-4 py-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-[var(--radius-md)] hover:bg-[var(--color-secondary-hover)] transition font-medium"><UploadIcon/> Import</button>
+                    <button onClick={() => handleCsvExport(students)} disabled={students.length === 0} className="flex items-center gap-2 px-4 py-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-[var(--radius-md)] hover:bg-[var(--color-secondary-hover)] transition disabled:opacity-50 disabled:cursor-not-allowed"><DownloadIcon/> Export</button>
                   </div>
               </div>
               
@@ -1377,7 +1405,7 @@
                     type="checkbox"
                     ref={selectAllCheckboxRef}
                     onChange={handleSelectAll}
-                    className="h-5 w-5 rounded border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
+                    className="h-5 w-5 rounded-[var(--radius-sm)] border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-primary)] focus:ring-[var(--color-primary)] focus:ring-offset-2 focus:ring-offset-[var(--color-card-bg)]"
                     aria-label="Select all students"
                   />
                   <div className="relative w-full">
@@ -1399,12 +1427,12 @@
                       filteredStudents.length > 0 ? (
                           <ul className="space-y-3">
                               {filteredStudents.map(s => (
-                              <li key={s.roll} className={`flex flex-col sm:flex-row items-start sm:items-center p-4 gap-4 rounded-lg border transition-all duration-300 ${selectedStudents.has(s.roll) ? 'bg-indigo-500/10 border-[var(--color-primary)]' : 'bg-[var(--color-bg)] border-[var(--color-border)]'} ${justAddedRoll === s.roll ? 'animate-fade-in-item' : ''}`}>
+                              <li key={s.roll} className={`flex flex-col sm:flex-row items-start sm:items-center p-4 gap-4 rounded-[var(--radius-lg)] border transition-all duration-300 ${selectedStudents.has(s.roll) ? 'bg-indigo-500/10 border-[var(--color-primary)] shadow-md' : 'bg-[var(--color-bg)] border-[var(--color-border)] hover:bg-[var(--color-secondary-bg)] hover:-translate-y-0.5 hover:shadow-md'} ${justAddedRoll === s.roll ? 'animate-fade-in-item' : ''}`}>
                                   <input
                                       type="checkbox"
                                       checked={selectedStudents.has(s.roll)}
                                       onChange={(e) => handleSelectStudent(s.roll, e.target.checked)}
-                                      className="h-5 w-5 rounded border-[var(--color-border)] bg-[var(--color-card-bg)] text-[var(--color-primary)] focus:ring-[var(--color-primary)] shrink-0 mt-1 sm:mt-0"
+                                      className="h-5 w-5 rounded-[var(--radius-sm)] border-[var(--color-border)] bg-[var(--color-card-bg)] text-[var(--color-primary)] focus:ring-[var(--color-primary)] focus:ring-offset-2 focus:ring-offset-[var(--color-bg)] shrink-0 mt-1 sm:mt-0"
                                       aria-labelledby={`student-name-${s.roll}`}
                                   />
                                   <div className="flex-grow">
@@ -1417,19 +1445,19 @@
                                         )}
                                       </p>
                                       <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-[var(--color-text-muted)] mt-1">
-                                          <span className="font-mono bg-[var(--color-secondary-bg)] border border-[var(--color-border)] text-[var(--color-secondary-text)] px-2 py-0.5 rounded text-xs font-semibold">
+                                          <span className="font-mono bg-[var(--color-secondary-bg)] border border-[var(--color-border)] text-[var(--color-secondary-text)] px-2 py-0.5 rounded-[var(--radius-sm)] text-xs font-semibold">
                                               {s.roll}
                                           </span>
                                           <span>{s.program}</span>
                                           <span>{s.section}</span>
                                           <span>Session: {s.session}</span>
                                           {s.contact && (
-                                            <a href={`tel:${s.contact}`} className="flex items-center hover:text-[var(--color-primary)]">
+                                            <a href={`tel:${s.contact}`} className="flex items-center hover:text-[var(--color-primary)] transition-colors">
                                               <PhoneIcon className="w-4 h-4 mr-1" /> {s.contact}
                                             </a>
                                           )}
                                           {s.email && (
-                                            <a href={`mailto:${s.email}`} className="flex items-center hover:text-[var(--color-primary)]">
+                                            <a href={`mailto:${s.email}`} className="flex items-center hover:text-[var(--color-primary)] transition-colors">
                                               <MailIcon className="w-4 h-4 mr-1" /> {s.email}
                                             </a>
                                           )}
@@ -1452,11 +1480,11 @@
             </div>
             
             <div className={`fixed bottom-0 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-lg z-30 transition-transform duration-300 ease-out ${selectedStudents.size > 0 ? 'translate-y-0' : 'translate-y-24'}`}>
-              <div className="bg-[var(--color-card-bg)] rounded-lg shadow-2xl p-3 flex justify-between items-center border border-[var(--color-border)]">
+              <div className="bg-[var(--color-card-bg)] rounded-[var(--radius-lg)] shadow-2xl p-3 flex justify-between items-center border border-[var(--color-border)]">
                   <span className="text-sm font-medium text-[var(--color-text)]">{selectedStudents.size} student(s) selected</span>
                   <div className="flex items-center gap-2">
-                      <button onClick={() => handleCsvExport(students.filter(s => selectedStudents.has(s.roll)))} className="flex items-center gap-2 px-3 py-2 text-sm bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-md hover:bg-[var(--color-secondary-hover)] transition"><DownloadIcon className="w-4 h-4" /> Export</button>
-                      <button onClick={() => setConfirmDelete({ type: 'bulk', payload: null })} className="flex items-center gap-2 px-3 py-2 text-sm bg-red-500/10 text-red-500 border border-red-500/20 rounded-md hover:bg-red-500/20 transition"><TrashIcon className="w-4 h-4" /> Delete</button>
+                      <button onClick={() => handleCsvExport(students.filter(s => selectedStudents.has(s.roll)))} className="flex items-center gap-2 px-3 py-2 text-sm bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-[var(--radius-md)] hover:bg-[var(--color-secondary-hover)] transition"><DownloadIcon className="w-4 h-4" /> Export</button>
+                      <button onClick={() => setConfirmDelete({ type: 'bulk', payload: null })} className="flex items-center gap-2 px-3 py-2 text-sm bg-red-500/10 text-red-500 border border-red-500/20 rounded-[var(--radius-md)] hover:bg-red-500/20 transition"><TrashIcon className="w-4 h-4" /> Delete</button>
                   </div>
               </div>
             </div>
@@ -1467,8 +1495,8 @@
               title="Edit Student Information"
               footer={
                 <>
-                  <button onClick={handleCloseEditModal} className="px-4 py-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-md hover:bg-[var(--color-secondary-hover)] transition font-medium">Cancel</button>
-                  <button type="submit" form="edit-student-form" className="px-4 py-2 bg-[var(--color-primary)] text-[var(--color-primary-text)] rounded-md hover:bg-[var(--color-primary-hover)] transition font-medium">Save Changes</button>
+                  <button onClick={handleCloseEditModal} className="px-4 py-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-[var(--radius-md)] hover:bg-[var(--color-secondary-hover)] transition font-medium">Cancel</button>
+                  <button type="submit" form="edit-student-form" className="px-4 py-2 bg-[var(--color-primary)] text-[var(--color-primary-text)] rounded-[var(--radius-md)] hover:bg-[var(--color-primary-hover)] transition font-medium">Save Changes</button>
                 </>
               }
             >
@@ -1483,8 +1511,8 @@
               title="Confirm Deletion"
               footer={
                   <>
-                      <button onClick={() => setConfirmDelete({ type: null, payload: null })} className="px-4 py-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-md hover:bg-[var(--color-secondary-hover)] transition font-medium">Cancel</button>
-                      <button onClick={handleConfirmDelete} className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition font-medium">Delete</button>
+                      <button onClick={() => setConfirmDelete({ type: null, payload: null })} className="px-4 py-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-[var(--radius-md)] hover:bg-[var(--color-secondary-hover)] transition font-medium">Cancel</button>
+                      <button onClick={handleConfirmDelete} className="px-4 py-2 bg-red-600 text-white rounded-[var(--radius-md)] hover:bg-red-700 transition font-medium">Delete</button>
                   </>
               }
               >
@@ -1519,7 +1547,7 @@
           onSubmit(formData);
         };
         
-        const inputClass = "mt-1 block w-full p-2 border rounded-md bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-[var(--color-primary)]";
+        const inputClass = "mt-1 block w-full p-2 border rounded-[var(--radius-md)] bg-[var(--color-bg)] border-[var(--color-border)] text-[var(--color-text)] focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-card-bg)] focus:ring-[var(--color-primary)]";
         
         return (
           <form id="setup-form" onSubmit={handleSubmit} className="space-y-4">
@@ -1811,14 +1839,14 @@
                           return <AttendanceTaker students={students} setAttendance={setAttendance} onComplete={handleCompleteAttendance} />;
                       }
                       return (
-                          <div className="flex flex-col items-center justify-center h-[calc(100vh-200px)] text-center p-4">
-                              <div className="p-10 bg-[var(--color-card-bg)] rounded-2xl shadow-sm border border-[var(--color-border)]">
+                          <div className="flex flex-col items-center justify-center h-[calc(100vh-220px)] text-center p-4">
+                              <div className="p-10 bg-[var(--color-card-bg)] rounded-3xl shadow-md border border-[var(--color-border)]">
                                 <h2 className="text-3xl font-bold text-[var(--color-text)] mb-2">Welcome, {teacher.name}!</h2>
                                 <p className="text-lg text-[var(--color-text-muted)] mb-8">Ready to start a new attendance session?</p>
                                 <button 
                                     onClick={startAttendance}
                                     disabled={students.length === 0}
-                                    className="px-10 py-4 text-lg bg-[var(--color-primary)] text-[var(--color-primary-text)] font-semibold rounded-lg shadow-lg hover:bg-[var(--color-primary-hover)] transition transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
+                                    className="px-10 py-4 text-lg bg-[var(--color-primary)] text-[var(--color-primary-text)] font-semibold rounded-[var(--radius-lg)] shadow-lg hover:bg-[var(--color-primary-hover)] transition-all duration-200 transform hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
                                 >
                                     Start New Session
                                 </button>
@@ -1837,7 +1865,7 @@
                       setActiveTab(tabName);
                       setIsSidebarOpen(false); // Close sidebar on selection
                   }}
-                  className={`flex items-center gap-3 px-4 py-3 w-full text-left rounded-lg font-semibold transition-colors ${activeTab === tabName ? 'bg-[var(--color-primary)] text-[var(--color-primary-text)]' : 'text-[var(--color-text-muted)] hover:bg-[var(--color-secondary-bg)] hover:text-[var(--color-text)]'}`}
+                  className={`flex items-center gap-3 px-4 py-3 w-full text-left rounded-[var(--radius-lg)] font-semibold transition-all duration-200 ${activeTab === tabName ? 'bg-[var(--color-primary)] text-[var(--color-primary-text)] shadow-md' : 'text-[var(--color-text-muted)] hover:bg-[var(--color-secondary-bg)] hover:text-[var(--color-text)]'}`}
               >
                   {icon}
                   <span>{label}</span>
@@ -1869,7 +1897,7 @@
                               info: 'bg-sky-500',
                           };
                           return (
-                              <div key={toast.id} className={`flex items-center gap-3 ${colors[toast.type]} text-white py-2 px-4 rounded-lg shadow-lg animate-toast-in`}>
+                              <div key={toast.id} className={`flex items-center gap-3 ${colors[toast.type]} text-white py-2 px-4 rounded-[var(--radius-lg)] shadow-lg animate-toast-in`}>
                                   {toast.type === 'info' && <InfoIcon className="w-5 h-5" />}
                                   {toast.type === 'success' && <CheckIcon className="w-5 h-5" />}
                                   {toast.type === 'error' && <XIcon className="w-5 h-5" />}
@@ -1881,13 +1909,13 @@
                   
                   {isSidebarOpen && (
                       <div 
-                          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+                          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
                           onClick={() => setIsSidebarOpen(false)}
                       ></div>
                   )}
 
                   <aside className={`fixed lg:relative h-full w-64 bg-[var(--color-card-bg)] border-r border-[var(--color-border)] p-4 flex flex-col shrink-0 z-50 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
-                      <h1 className="text-3xl font-bold tracking-wide text-[var(--color-primary)] px-2 py-4">Attendly</h1>
+                      <h1 className="text-4xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-pink-500 px-2 py-4">Attendly</h1>
                       <nav className="flex flex-col space-y-2 mt-4">
                           <SidebarLink tabName="attendance" icon={<ListIcon/>} label="Attendance" />
                           <SidebarLink tabName="students" icon={<UsersIcon/>} label="Students" />
@@ -1910,7 +1938,7 @@
                                   <h2 className="text-2xl font-bold text-[var(--color-text)]">{pageTitles[activeTab]}</h2>
                               </div>
                               <div ref={profileRef} className="relative">
-                                <button onClick={() => setIsProfileOpen(p => !p)} className="flex items-center gap-2 p-2 rounded-lg hover:bg-[var(--color-secondary-bg)] transition">
+                                <button onClick={() => setIsProfileOpen(p => !p)} className="flex items-center gap-2 p-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-secondary-bg)] transition">
                                     <div className="w-8 h-8 rounded-full bg-[var(--color-primary)] text-[var(--color-primary-text)] flex items-center justify-center font-bold">{teacher.name.charAt(0)}</div>
                                     <div className="hidden sm:block text-left">
                                         <div className="font-semibold text-[var(--color-text)] leading-tight">{teacher.name}</div>
@@ -1918,7 +1946,7 @@
                                     </div>
                                 </button>
                                 {isProfileOpen && (
-                                    <div className="absolute top-full right-0 mt-2 w-48 bg-[var(--color-card-bg)] rounded-lg shadow-xl border border-[var(--color-border)] py-1 z-50 animate-fade-in-fast">
+                                    <div className="absolute top-full right-0 mt-2 w-48 bg-[var(--color-card-bg)] rounded-[var(--radius-lg)] shadow-xl border border-[var(--color-border)] py-1 z-50 animate-fade-in-fast">
                                         <button onClick={handleLogout} className="w-full text-left flex items-center gap-2 px-4 py-2 text-sm text-[var(--color-text-muted)] hover:bg-[var(--color-secondary-bg)] hover:text-red-500 transition-colors">
                                             <LogOutIcon />
                                             Logout
@@ -1929,7 +1957,7 @@
                           </div>
                       </header>
 
-                      <main className="flex-grow p-4 sm:p-6 overflow-y-auto">
+                      <main className="flex-grow p-4 sm:p-6 lg:p-8 overflow-y-auto">
                           <div key={activeTab} className="animate-fade-in">
                               {renderContent()}
                           </div>
@@ -1939,50 +1967,50 @@
 
                   <Modal isOpen={appState === 'summary'} onClose={resetSession} title="Attendance Summary" footer={
                       <>
-                          <button onClick={resetSession} className="px-4 py-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-md hover:bg-[var(--color-secondary-hover)] transition font-medium">Cancel</button>
-                          <button onClick={handleExportAttendanceCsv} className="flex items-center gap-2 px-4 py-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-md hover:bg-[var(--color-secondary-hover)] transition font-medium">
+                          <button onClick={resetSession} className="px-4 py-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-[var(--radius-md)] hover:bg-[var(--color-secondary-hover)] transition font-medium">Cancel</button>
+                          <button onClick={handleExportAttendanceCsv} className="flex items-center gap-2 px-4 py-2 bg-[var(--color-secondary-bg)] text-[var(--color-secondary-text)] rounded-[var(--radius-md)] hover:bg-[var(--color-secondary-hover)] transition font-medium">
                             <DownloadIcon/> Export CSV
                           </button>
-                          <button onClick={generatePdfAndSave} disabled={isGeneratingPdf} className="px-4 py-2 bg-[var(--color-primary)] text-[var(--color-primary-text)] rounded-md hover:bg-[var(--color-primary-hover)] transition font-medium disabled:opacity-50 disabled:cursor-wait">
+                          <button onClick={generatePdfAndSave} disabled={isGeneratingPdf} className="px-4 py-2 bg-[var(--color-primary)] text-[var(--color-primary-text)] rounded-[var(--radius-md)] hover:bg-[var(--color-primary-hover)] transition font-medium disabled:opacity-50 disabled:cursor-wait">
                               {isGeneratingPdf ? 'Generating...' : 'Generate PDF & Save'}
                           </button>
                       </>
                   }>
                       <div className="space-y-4 max-h-[60vh] overflow-y-auto p-1">
-                          <div className="bg-green-500/10 p-3 rounded-lg">
+                          <div className="bg-green-500/10 p-3 rounded-[var(--radius-lg)]">
                               <h4 className="text-lg font-semibold flex items-center text-green-500 mb-2"><CheckIcon className="mr-2"/> Present ({presentStudents.length})</h4>
                               {presentStudents.length > 0 ? (
-                                  <ul className="space-y-1 text-sm text-[var(--color-text-muted)] sm:columns-2">
-                                      {presentStudents.map(s => <li key={s.roll}><span className="font-mono bg-[var(--color-secondary-bg)] px-1.5 py-0.5 rounded mr-2 text-xs">{s.roll}</span>{s.name}</li>)}
+                                  <ul className="space-y-1 text-sm text-[var(--color-text-muted)] grid grid-cols-1 sm:grid-cols-2 gap-x-4">
+                                      {presentStudents.map(s => <li key={s.roll} className="flex items-center gap-2"><span className="font-mono bg-[var(--color-secondary-bg)] px-1.5 py-0.5 rounded-[var(--radius-sm)] text-xs">{s.roll}</span><span>{s.name}</span></li>)}
                                   </ul>
                               ) : <p className="text-sm text-[var(--color-text-muted)] italic pl-1">No students were present.</p>}
                           </div>
-                          <div className="bg-red-500/10 p-3 rounded-lg">
+                          <div className="bg-red-500/10 p-3 rounded-[var(--radius-lg)]">
                               <h4 className="text-lg font-semibold flex items-center text-red-500 mb-2"><XIcon className="mr-2"/> Absent ({absentStudents.length})</h4>
                               {absentStudents.length > 0 ? (
-                                  <ul className="space-y-1 text-sm text-[var(--color-text-muted)] sm:columns-2">
-                                      {absentStudents.map(s => <li key={s.roll}><span className="font-mono bg-[var(--color-secondary-bg)] px-1.5 py-0.5 rounded mr-2 text-xs">{s.roll}</span>{s.name}</li>)}
+                                  <ul className="space-y-1 text-sm text-[var(--color-text-muted)] grid grid-cols-1 sm:grid-cols-2 gap-x-4">
+                                      {absentStudents.map(s => <li key={s.roll} className="flex items-center gap-2"><span className="font-mono bg-[var(--color-secondary-bg)] px-1.5 py-0.5 rounded-[var(--radius-sm)] text-xs">{s.roll}</span><span>{s.name}</span></li>)}
                                   </ul>
                               ) : <p className="text-sm text-[var(--color-text-muted)] italic pl-1">No students were absent.</p>}
                           </div>
-                          <div className="bg-orange-500/10 p-3 rounded-lg">
+                          <div className="bg-orange-500/10 p-3 rounded-[var(--radius-lg)]">
                               <h4 className="text-lg font-semibold flex items-center text-orange-500 mb-2"><BanIcon className="mr-2"/> Bunk ({bunkStudents.length})</h4>
                               {bunkStudents.length > 0 ? (
-                                  <ul className="space-y-1 text-sm text-[var(--color-text-muted)] sm:columns-2">
-                                      {bunkStudents.map(s => <li key={s.roll}><span className="font-mono bg-[var(--color-secondary-bg)] px-1.5 py-0.5 rounded mr-2 text-xs">{s.roll}</span>{s.name}</li>)}
+                                  <ul className="space-y-1 text-sm text-[var(--color-text-muted)] grid grid-cols-1 sm:grid-cols-2 gap-x-4">
+                                      {bunkStudents.map(s => <li key={s.roll} className="flex items-center gap-2"><span className="font-mono bg-[var(--color-secondary-bg)] px-1.5 py-0.5 rounded-[var(--radius-sm)] text-xs">{s.roll}</span><span>{s.name}</span></li>)}
                                   </ul>
                               ) : <p className="text-sm text-[var(--color-text-muted)] italic pl-1">No students bunked.</p>}
                           </div>
-                          <div className="bg-yellow-500/10 p-3 rounded-lg">
+                          <div className="bg-yellow-500/10 p-3 rounded-[var(--radius-lg)]">
                               <h4 className="text-lg font-semibold flex items-center text-yellow-500 mb-2"><FileTextIcon className="mr-2"/> On Leave ({leaveStudents.length})</h4>
                               {leaveStudents.length > 0 ? (
                                   <ul className="space-y-1 text-sm text-[var(--color-text-muted)]">
                                       {leaveStudents.map(s => (
                                           <li key={s.student.roll}>
-                                              <div className="flex items-center">
-                                                  <span className="font-mono bg-[var(--color-secondary-bg)] px-1.5 py-0.5 rounded mr-2 text-xs">{s.student.roll}</span>{s.student.name}
+                                              <div className="flex items-center gap-2">
+                                                  <span className="font-mono bg-[var(--color-secondary-bg)] px-1.5 py-0.5 rounded-[var(--radius-sm)] text-xs">{s.student.roll}</span>{s.student.name}
                                               </div>
-                                              {s.reason && <div className="pl-8 text-xs italic text-gray-500">"{s.reason}"</div>}
+                                              {s.reason && <div className="pl-8 text-xs italic opacity-80">"{s.reason}"</div>}
                                           </li>
                                       ))}
                                   </ul>
@@ -1994,13 +2022,13 @@
                   <Modal isOpen={isAboutModalOpen} onClose={() => setIsAboutModalOpen(false)} title="About Attendly">
                       <div className="space-y-4 text-center">
                           <div className="flex justify-center">
-                              <div className="w-16 h-16 rounded-full bg-[var(--color-primary)] text-[var(--color-primary-text)] flex items-center justify-center text-3xl font-bold">
+                              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-pink-500 text-[var(--color-primary-text)] flex items-center justify-center text-3xl font-bold">
                                   ES
                               </div>
                           </div>
                           <div>
                               <p className="text-lg font-semibold text-[var(--color-text)]">Developed by Ehtisham Sabir</p>
-                              <p className="text-sm text-[var(--color-text-muted)]">Version 1.1.1</p>
+                              <p className="text-sm text-[var(--color-text-muted)]">Version 2.0.0</p>
                           </div>
                           <p className="text-sm">
                               Attendly is a modern, offline-first attendance management system designed to be fast, reliable, and user-friendly for educators.
@@ -2020,7 +2048,7 @@
                       title="Welcome! Let's get you set up."
                       hideCloseButton={true}
                       footer={
-                          <button type="submit" form="setup-form" className="w-full px-6 py-2 bg-[var(--color-primary)] text-[var(--color-primary-text)] rounded-md hover:bg-[var(--color-primary-hover)] transition font-semibold">
+                          <button type="submit" form="setup-form" className="w-full px-6 py-2 bg-[var(--color-primary)] text-[var(--color-primary-text)] rounded-[var(--radius-md)] hover:bg-[var(--color-primary-hover)] transition font-semibold">
                               Save and Continue
                           </button>
                       }
